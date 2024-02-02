@@ -8,7 +8,6 @@ if not vim.g.vscode then
   require('lazy_nvim')
 end
 
-
 local has = function(x)
   return vim.fn.has(x) == 1
 end
