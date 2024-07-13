@@ -27,8 +27,16 @@ vim.opt.wrap = false -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
-
-vim.opt.shell = 'zsh'
+vim.opt.swapfile = false
+local has = function(x)
+  return vim.fn.has(x) == 1
+end
+local is_mac = has "macunix"
+local is_linux = has "unix"
+local is_win = has "win32"
+if is_linux then
+  vim.opt.shell = 'zsh'
+end
 if is_win then
   local powershell_options = {
     shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
@@ -49,7 +57,10 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.cmd([[
 set mmp=50000
-let g:python3_host_prog = 'C:\Users\kowat\AppData\Local\Programs\Python\Python310\python.exe' "python指定
+let g:python3_host_prog = '/home/rk/venv/python3.12/bin/python3' "python指定
+let g:denops#deno = '/home/linuxbrew/.linuxbrew/bin/deno'
+
+set termguicolors
 set foldmethod=manual  "折りたたみ範囲の判断基準（デフォルト: manual）
 set foldlevel=10
 set foldcolumn=3       "左端に折りたたみ状態を表示する領域を追加する

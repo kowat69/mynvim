@@ -14,6 +14,7 @@ return {
     {
       "folke/tokyonight.nvim",
       lazy = false,
+        event = 'VeryLazy',
       priority = 1000,
       opts = {},
       config = function()
@@ -132,6 +133,7 @@ return {
     -- LSP UIs
         {
         'windwp/nvim-autopairs',
+        enabled = false,
         event = 'InsertEnter',
         config = function()
             require('config.autopairs-rc')
@@ -139,6 +141,7 @@ return {
    },-- LSP UIs
     {
         'windwp/nvim-ts-autotag',
+        enabled = false,
         event = 'InsertEnter',
         config = function()
             require('config.ts-autotag-rc')

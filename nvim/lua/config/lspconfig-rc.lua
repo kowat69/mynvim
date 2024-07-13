@@ -75,6 +75,16 @@ end
 nvim_lsp.docker_compose_language_service.setup{}
 nvim_lsp.dockerls.setup{}
 
+nvim_lsp.rust_analyzer.setup{
+    settings = {
+        ['rust-analyzer'] = {
+            diagnostics = {
+                enable = true;
+            }
+        }
+    }
+}
+
 nvim_lsp.denols.setup({
   capabilities = capabilities,
 })
